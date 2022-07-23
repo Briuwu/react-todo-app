@@ -1,0 +1,286 @@
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $lt-dark-grayish-blue;
+  height: 1.5em;
+  border-radius:50%;
+  width: 1.5em;
+  cursor: pointer;
+
+  .check {
+    display: none;
+  }
+}
+
+.todo {
+  color: $lt-very-light-gray;
+  background-color: $dt-very-dark-blue;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &.light {
+    background-color: $lt-light-grayish-blue !important;
+
+    background-image: url('../images/bg-mobile-light.jpg');
+  }
+
+  // Background Image
+  background-image: url('../images/bg-mobile-dark.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+
+    padding-inline: 1em;
+    padding-top: 3em;
+    padding-bottom: 2em;
+
+    button {
+      cursor: pointer;
+    }
+
+    h1 {
+      font-size: 2rem;
+      letter-spacing: 10px;
+      cursor: pointer;
+    }
+  }
+
+  // Todo MAIN
+  &-app {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1em;
+
+    // FORM CONTENT
+    &-form {
+      display: flex;
+      padding-bottom: 1.5em;
+
+      &.light {
+
+        p {
+          background-color: $lt-light-grayish-blue;
+          color: $lt-very-dark-grayish-blue;
+        }
+
+        .todo-app-form-input {
+          background-color: $lt-light-grayish-blue;
+          color: $lt-very-dark-grayish-blue;
+          
+          &::placeholder {
+            color: $lt-very-dark-grayish-blue;
+          }
+          &:focus::placeholder {
+            color: transparent;
+          }
+        }
+
+        .todo-app-form-btn {
+          background-color: $lt-light-grayish-blue;
+        }
+        
+      }
+
+      p {
+        display: grid;
+        place-items: center;
+        background-color: $dt-very-dark-desaturated-blue;
+        font-size: 14px;
+        width: 200px;
+        color: $dt-light-grayish-blue;
+      }
+      
+      &-input {
+        color: $dt-light-grayish-blue;
+        width: 100%;
+        padding: 1em;
+        border: none;
+        outline: none;
+
+        background-color: $dt-very-dark-desaturated-blue;
+        border-top-right-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
+
+        &::placeholder {
+          color: $dt-light-grayish-blue;
+        }
+
+        &:focus::placeholder {
+          color: transparent;
+        }
+      }
+
+      &-btn {
+        background-color: $dt-very-dark-desaturated-blue;
+        padding-right: 0.25em;
+        padding-left: 1em;
+
+        border-top-left-radius: 0.5em;
+        border-bottom-left-radius: 0.5em;
+
+        .circle:hover {
+          border: none;
+          background-image: $check-bg;
+
+          .check {
+            display: block;
+            width: 0.5em;
+            height: 0.5em;
+          }
+        }
+      }
+    }
+
+    &-filtering {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1em;
+
+      margin-top: 2em;
+      padding: 1em;
+      border-radius: 0.75em;
+
+      background-color: $dt-very-dark-desaturated-blue;
+      color: $dt-dark-grayish-blue;
+      cursor: pointer;
+
+      &.light {
+        background-color: $lt-light-grayish-blue;
+      }
+
+      &-btns {
+        display: flex;
+        gap: 1em;
+      }
+
+      button.clicked {
+        color: $bright-blue;
+      }
+
+      button:hover {
+        color: $bright-blue;
+      }
+    }
+
+    // TODO LIST
+    &-list {
+      background-color: $dt-very-dark-desaturated-blue;
+      border-radius: 0.75em;
+      color: $dt-light-grayish-blue;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+      &.light {
+        background-color: $lt-light-grayish-blue;
+        color: $lt-very-dark-grayish-blue;
+
+        .todo-app-list-each {
+
+          .active {
+            color: $lt-dark-grayish-blue;
+          }
+        }
+      }
+
+      &-filter {
+        font-size: 15px;
+        color: $dt-dark-grayish-blue;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em;
+        cursor: pointer;
+
+        &-clear:hover {
+          color: $bright-blue;
+        }
+      }
+
+      &-each {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        padding: 1.5em;
+        padding-inline: 1em;
+
+        border-bottom: 1px solid $dt-very-dark-grayish-blue-2;
+
+        .circle.active {
+          background-image: $check-bg;
+
+          img {
+            display: block;
+          }
+        }
+
+        p {
+          font-size: 15px;
+
+          &.active {
+            text-decoration: line-through;
+            color: $dt-very-dark-grayish-blue-1;
+          }
+        }
+
+        .delete {
+          margin-left: auto;
+          outline: none;
+          cursor: pointer;
+        }
+
+        .circle:hover {
+          border: none;
+          background-image: $check-bg;
+
+          .check {
+            display: block;
+            width: 0.5em;
+            height: 0.5em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .todo {
+    align-items: center;
+    padding-bottom: 2em;
+
+    background-image: url('../images/bg-desktop-dark.jpg');
+
+    &.light {
+      background-image: url('../images/bg-desktop-light.jpg');
+    }
+
+    nav {
+      width: 600px;
+    }
+  }
+
+  .todo-app {
+    width: 600px;
+  }
+
+  .todo-app-filtering {
+    margin-top: 0;
+    font-size: 16px;
+    justify-content: space-between;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .todo-app-list {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

@@ -3,9 +3,9 @@ import TodoApp from './components/TodoApp'
 
 const App = () => {
   return (
-    <div>
+    <main>
       <TodoApp />
-    </div>
+    </main>
   )
 }
 
